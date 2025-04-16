@@ -44,3 +44,6 @@ jobs:
             "transition": { "id": "31" }
           }' \
           https://hautq2004-1742971230689.atlassian.net/rest/api/3/issue/$ISSUE_KEY/transitions
+    - name: Notify Slack
+      run: |
+        curl -X POST -H 'Content-type: application/json' --data '{"text":"Pull Request has been merged!"}' ${{ secrets.SLACK_WEBHOOK_URL }}
